@@ -22,10 +22,15 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transform: translateY(-2px);
         }
-        /* Print-specific styles */
+        
+        /* --- UPDATED PRINT STYLES --- */
         @media print {
             body {
                 background-color: #fff;
+                font-size: 9pt; /* Base font size for print */
+                line-height: 1.3;
+                margin: 0;
+                padding: 0;
             }
             .no-print {
                 display: none !important;
@@ -36,22 +41,49 @@
                 padding: 0 !important;
                 border: none !important;
                 max-width: 100% !important;
+                height: 100vh; /* Fill the page height */
             }
-            .print-break-inside-avoid {
-                break-inside: avoid;
+            .print-container > .bg-white {
+                height: 100%;
+                border-radius: 0 !important;
             }
+            /* Keep the grid layout for print */
             .print-grid-reset {
-                display: block !important;
+                 display: grid !important;
+                 height: 100%;
             }
             .print-full-width {
-                width: 100% !important;
-                padding: 0 !important;
+                padding: 1.5rem !important; /* Reduce padding */
             }
-            .print-text-sm {
-                font-size: 10pt !important;
+            /* Force background colors and text colors to print */
+            .bg-slate-800 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
-            h1, h2, h3, h4, p, li {
-                color: #000 !important;
+            h1, h2, h3, h4, p, li, span {
+                color: initial !important;
+            }
+            .text-white, .text-slate-200, .text-slate-300 {
+                 color: #fff !important;
+            }
+            /* Reduce font sizes */
+            h1.text-3xl { font-size: 24pt !important; }
+            h3.text-xl { font-size: 14pt !important; }
+            h3.text-lg { font-size: 12pt !important; }
+            
+            /* Reduce spacing */
+            .mt-10 { margin-top: 1.5rem !important; }
+            .mt-8 { margin-top: 1.25rem !important; }
+            .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+            .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem !important; }
+            .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem !important; }
+            .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.4rem !important; }
+            .space-y-1 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.2rem !important; }
+            
+            /* Reduce image size */
+            .rounded-full {
+                width: 110px !important;
+                height: 110px !important;
             }
         }
     </style>
@@ -170,7 +202,7 @@
                 <!-- Right Column: Summary, Experience, Education, Qualifications -->
                 <div class="md:col-span-2 p-8 print-full-width">
                     <!-- Summary -->
-                    <section class="print-text-sm">
+                    <section>
                         <p data-lang="tr" class="text-slate-600 leading-relaxed">
                             Savunma ve havacılık sektörlerinde 5 yıllık kullanıcı odaklı tasarım tecrübesiyle, endüstriyel tasarım disiplinini ve teknik problem çözme yeteneğimi web ve mobil uygulama alanına taşımayı hedefliyorum. Karmaşık sistemlerde edindiğim deneyimi, kullanıcı dostu ve etkili dijital ürünler yaratmak için kullanmaya ve yenilikçi ekiplere değer katmaya hazırım.
                         </p>
@@ -184,7 +216,7 @@
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">İŞ DENEYİMİ</h3>
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">WORK EXPERIENCE</h3>
                         <div class="space-y-6">
-                            <div class="print-text-sm">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="font-bold text-slate-700" data-lang="tr">Uçuş Dokümantasyon Uzmanı</h4>
                                     <h4 class="font-bold text-slate-700 hidden" data-lang="en">Flight Documentation Specialist</h4>
@@ -206,7 +238,7 @@
                                     <li data-lang="en" class="hidden">Successfully managed detailed documentation logs and version control processes.</li>
                                 </ul>
                             </div>
-                            <div class="print-text-sm">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="font-bold text-slate-700" data-lang="tr">Logo, Etiket ve Marka Tasarımcısı</h4>
                                     <h4 class="font-bold text-slate-700 hidden" data-lang="en">Label, Logo, Brand Designer</h4>
@@ -230,7 +262,7 @@
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">EĞİTİM</h3>
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">EDUCATION</h3>
                         <div class="space-y-4">
-                            <div class="print-text-sm">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="font-bold text-slate-700">Post Degree Diploma</h4>
                                     <p class="text-sm text-slate-500" data-lang="tr">Eylül 2024 - Nisan 2025</p>
@@ -242,7 +274,7 @@
                                 <p class="text-xs text-slate-500 mt-1" data-lang="tr">*Kişisel nedenlerden dolayı program tamamlanamamıştır.</p>
                                 <p class="text-xs text-slate-500 mt-1 hidden" data-lang="en">*Program could not be completed due to personal circumstances.</p>
                             </div>
-                            <div class="print-text-sm">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="font-bold text-slate-700" data-lang="tr">Lisans Derecesi</h4>
                                     <h4 class="font-bold text-slate-700 hidden" data-lang="en">Bachelor's Degree</h4>
@@ -261,7 +293,7 @@
                     <section class="mt-8 print-break-inside-avoid">
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">NİTELİK ÖZETİ</h3>
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">SUMMARY OF QUALIFICATIONS</h3>
-                        <ul class="list-disc list-inside space-y-2 text-slate-600 print-text-sm">
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
                             <li data-lang="tr">Teknik ekipler ve son kullanıcılar dahil olmak üzere farklı paydaşlarla etkili iletişim kurarak proje hedeflerine ulaşma.</li>
                             <li data-lang="en" class="hidden">Achieving project goals by communicating effectively with diverse stakeholders, including technical teams and end-users.</li>
                             <li data-lang="tr">Disiplinler arası takımlarda iş birliğini ve kapsayıcılığı teşvik ederek verimli bir çalışma ortamı yaratma.</li>
