@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beste Bozdağ - CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .print-button {
+            transition: all 0.3s ease;
+        }
+        .print-button:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+                max-width: 100% !important;
+            }
+            .print-break-inside-avoid {
+                break-inside: avoid;
+            }
+            .print-grid-reset {
+                display: block !important;
+            }
+            .print-full-width {
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            .print-text-sm {
+                font-size: 10pt !important;
+            }
+            h1, h2, h3, h4, p, li {
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Top control bar for language and print -->
+    <div class="no-print fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold text-slate-800">Beste Bozdağ</span>
+                <span class="text-slate-400">|</span>
+                <span data-lang="tr" class="font-medium">İnteraktif CV</span>
+                <span data-lang="en" class="font-medium hidden">Interactive CV</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-slate-200 rounded-full p-1">
+                    <button id="lang-tr" class="px-3 py-1 text-sm font-semibold rounded-full bg-slate-800 text-white" onclick="switchLanguage('tr')">TR</button>
+                    <button id="lang-en" class="px-3 py-1 text-sm font-semibold rounded-full text-slate-600" onclick="switchLanguage('en')">EN</button>
+                </div>
+                <!-- Print Button -->
+                <button onclick="window.print()" class="print-button bg-slate-800 text-white px-4 py-2 rounded-full font-semibold text-sm flex items-center space-x-2">
+                    <i class="fas fa-print"></i>
+                    <span data-lang="tr">PDF Olarak Yazdır</span>
+                    <span data-lang="en" class="hidden">Print as PDF</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main CV container -->
+    <main class="max-w-6xl mx-auto p-4 sm:p-8 lg:p-12 mt-20 print-container">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 print-grid-reset">
+                
+                <!-- Left Column: Contact, Skills -->
+                <aside class="md:col-span-1 bg-slate-800 text-white p-8 print-full-width">
+                    <!-- Profile Picture and Name -->
+                    <div class="flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=BB" alt="Beste Bozdağ" class="rounded-full w-36 h-36 border-4 border-slate-500 object-cover mb-4">
+                        <h1 class="text-3xl font-bold text-white">BESTE BOZDAĞ</h1>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="mt-10 print-break-inside-avoid">
+                        <h3 class="text-lg font-bold text-slate-300 border-b-2 border-slate-600 pb-2 mb-4" data-lang="tr">İLETİŞİM</h3>
+                        <h3 class="text-lg font-bold text-slate-300 border-b-2 border-slate-600 pb-2 mb-4 hidden" data-lang="en">CONTACT</h3>
+                        <ul class="space-y-3 text-sm text-slate-200">
+                            <li><i class="fas fa-map-marker-alt w-5 mr-2 text-slate-400"></i>Çankaya, Ankara</li>
+                            <li><i class="fas fa-phone w-5 mr-2 text-slate-400"></i>538-664-4264</li>
+                            <li><i class="fas fa-envelope w-5 mr-2 text-slate-400"></i>bozdag.beste5@gmail.com</li>
+                            <li><i class="fas fa-globe w-5 mr-2 text-slate-400"></i><a href="http://www.kanatlibalik.com" target="_blank" class="hover:text-white">www.kanatlibalik.com</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="mt-8 print-break-inside-avoid">
+                        <h3 class="text-lg font-bold text-slate-300 border-b-2 border-slate-600 pb-2 mb-4" data-lang="tr">YETENEKLER</h3>
+                        <h3 class="text-lg font-bold text-slate-300 border-b-2 border-slate-600 pb-2 mb-4 hidden" data-lang="en">SKILLS</h3>
+                        <div class="space-y-6 text-sm">
+                            <div>
+                                <h4 class="font-semibold text-slate-200 mb-2" data-lang="tr">UX/UI Tasarımı</h4>
+                                <h4 class="font-semibold text-slate-200 mb-2 hidden" data-lang="en">UX/UI Design</h4>
+                                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                                    <li>Figma, Adobe XD</li>
+                                    <li data-lang="tr">Wireframe, prototipleme, kullanıcı akışları</li>
+                                    <li data-lang="en" class="hidden">Wireframing, Prototyping, User Flows</li>
+                                    <li data-lang="tr">Kullanıcı araştırması, kullanılabilirlik testleri</li>
+                                    <li data-lang="en" class="hidden">User Research, Usability Testing</li>
+                                    <li data-lang="tr">Kullanıcı odaklı tasarım prensipleri</li>
+                                    <li data-lang="en" class="hidden">User-Centered Design Principles</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-200 mb-2" data-lang="tr">Grafik Tasarım</h4>
+                                <h4 class="font-semibold text-slate-200 mb-2 hidden" data-lang="en">Graphic Design</h4>
+                                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                                    <li>Adobe Illustrator, Adobe Photoshop, CorelDraw</li>
+                                    <li data-lang="tr">Görsel kimlik, marka tasarımı, ambalaj tasarımı</li>
+                                    <li data-lang="en" class="hidden">Visual Identity, Branding, Packaging Design</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-200 mb-2" data-lang="tr">Teknik Dokümantasyon</h4>
+                                <h4 class="font-semibold text-slate-200 mb-2 hidden" data-lang="en">Technical Documentation</h4>
+                                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                                    <li>Microsoft Office, Adobe InDesign, Adobe FrameMaker</li>
+                                    <li data-lang="tr">Teknik belgeler için görsel tasarım</li>
+                                    <li data-lang="en" class="hidden">Visual Design for Manuals & Technical Content</li>
+                                    <li data-lang="tr">Sürüm takibi ve belge yönetimi</li>
+                                    <li data-lang="en" class="hidden">Version Control, Document Structuring</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-200 mb-2" data-lang="tr">Web Teknolojileri</h4>
+                                <h4 class="font-semibold text-slate-200 mb-2 hidden" data-lang="en">Web Technologies</h4>
+                                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                                    <li>HTML, CSS, Basic JavaScript</li>
+                                    <li data-lang="tr">Duyarlı tasarım prensipleri</li>
+                                    <li data-lang="en" class="hidden">Responsive Design Principles</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-200 mb-2" data-lang="tr">3D ve Görselleştirme</h4>
+                                <h4 class="font-semibold text-slate-200 mb-2 hidden" data-lang="en">3D & Visualization</h4>
+                                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                                    <li>Rhinoceros 3D</li>
+                                    <li>KeyShot (Rendering)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Right Column: Summary, Experience, Education, Qualifications -->
+                <div class="md:col-span-2 p-8 print-full-width">
+                    <!-- Summary -->
+                    <section class="print-text-sm">
+                        <p data-lang="tr" class="text-slate-600 leading-relaxed">
+                            Savunma ve havacılık sektörlerinde 5 yıllık kullanıcı odaklı tasarım tecrübesiyle, endüstriyel tasarım disiplinini ve teknik problem çözme yeteneğimi web ve mobil uygulama alanına taşımayı hedefliyorum. Karmaşık sistemlerde edindiğim deneyimi, kullanıcı dostu ve etkili dijital ürünler yaratmak için kullanmaya ve yenilikçi ekiplere değer katmaya hazırım.
+                        </p>
+                        <p data-lang="en" class="text-slate-600 leading-relaxed hidden">
+                            Leveraging 5 years of user-centered design experience in the defense and aviation sectors, I am transitioning my industrial design discipline and technical problem-solving skills to the web and mobile app domain. I am eager to apply my expertise from complex systems to create intuitive, effective digital products and contribute value to innovative teams.
+                        </p>
+                    </section>
+
+                    <!-- Work Experience -->
+                    <section class="mt-8 print-break-inside-avoid">
+                        <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">İŞ DENEYİMİ</h3>
+                        <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">WORK EXPERIENCE</h3>
+                        <div class="space-y-6">
+                            <div class="print-text-sm">
+                                <div class="flex justify-between items-baseline">
+                                    <h4 class="font-bold text-slate-700" data-lang="tr">Uçuş Dokümantasyon Uzmanı</h4>
+                                    <h4 class="font-bold text-slate-700 hidden" data-lang="en">Flight Documentation Specialist</h4>
+                                    <p class="text-sm text-slate-500" data-lang="tr">Ağustos 2019 - Temmuz 2024</p>
+                                    <p class="text-sm text-slate-500 hidden" data-lang="en">August 2019 - July 2024</p>
+                                </div>
+                                <p class="text-sm text-slate-600 italic" data-lang="tr">Türk Havacılık ve Uzay Sanayii A.Ş. (TUSAŞ), Ankara</p>
+                                <p class="text-sm text-slate-600 italic hidden" data-lang="en">Turkish Aerospace Industries Inc., Ankara</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600 text-sm">
+                                    <li data-lang="tr">Endüstri standartlarına uygun uçuş dokümantasyonunu geliştirdi ve yönetti.</li>
+                                    <li data-lang="en" class="hidden">Developed and maintained flight documentation in compliance with rigorous industry standards.</li>
+                                    <li data-lang="tr">Kullanıcı deneyimini ve belge anlaşılırlığını iyileştirmek amacıyla kullanılabilirlik testleri yürüttü.</li>
+                                    <li data-lang="en" class="hidden">Conducted usability testing to enhance document clarity and improve the overall user experience.</li>
+                                    <li data-lang="tr">Karmaşık teknik içeriklerin etkinliğini artırmak için görsel iletişim tasarımı prensiplerini uyguladı.</li>
+                                    <li data-lang="en" class="hidden">Applied visual communication design principles to increase the effectiveness of complex technical content.</li>
+                                    <li data-lang="tr">İçerik doğruluğunu ve tutarlılığını sağlamak için mühendisler ve pilotlarla yakın iş birliği içinde çalıştı.</li>
+                                    <li data-lang="en" class="hidden">Collaborated closely with engineers and pilots to ensure content accuracy and accessibility.</li>
+                                    <li data-lang="tr">Detaylı belge takibi ve sürüm kontrol süreçlerini başarıyla yönetti.</li>
+                                    <li data-lang="en" class="hidden">Successfully managed detailed documentation logs and version control processes.</li>
+                                </ul>
+                            </div>
+                            <div class="print-text-sm">
+                                <div class="flex justify-between items-baseline">
+                                    <h4 class="font-bold text-slate-700" data-lang="tr">Logo, Etiket ve Marka Tasarımcısı</h4>
+                                    <h4 class="font-bold text-slate-700 hidden" data-lang="en">Label, Logo, Brand Designer</h4>
+                                    <p class="text-sm text-slate-500" data-lang="tr">Ağustos 2018 - Ağustos 2019</p>
+                                    <p class="text-sm text-slate-500 hidden" data-lang="en">August 2018 - August 2019</p>
+                                </div>
+                                <p class="text-sm text-slate-600 italic" data-lang="tr">Melissa Kozmetik ve Temizlik Ürünleri San. Tic. Ltd. Şti., Ankara</p>
+                                <p class="text-sm text-slate-600 italic hidden" data-lang="en">Melissa Cosmetic and Cleaning Products Ind. Trade. Co. Ltd., Ankara</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1 text-slate-600 text-sm">
+                                    <li data-lang="tr">Marka kimliğine uygun logolar ve etiketler tasarladı.</li>
+                                    <li data-lang="en" class="hidden">Designed brand logos and labels.</li>
+                                    <li data-lang="tr">Pazarlama stratejileriyle uyumlu, yenilikçi ambalaj çözümleri geliştirdi.</li>
+                                    <li data-lang="en" class="hidden">Created packaging solutions that aligned with branding strategies.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                     <!-- Education -->
+                     <section class="mt-8 print-break-inside-avoid">
+                        <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">EĞİTİM</h3>
+                        <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">EDUCATION</h3>
+                        <div class="space-y-4">
+                            <div class="print-text-sm">
+                                <div class="flex justify-between items-baseline">
+                                    <h4 class="font-bold text-slate-700">Post Degree Diploma</h4>
+                                    <p class="text-sm text-slate-500" data-lang="tr">Eylül 2024 - Nisan 2025</p>
+                                    <p class="text-sm text-slate-500 hidden" data-lang="en">September 2024 - April 2025</p>
+                                </div>
+                                <p class="text-sm text-slate-600 italic" data-lang="tr">Web ve Mobil Uygulama Tasarımı ve Geliştirme</p>
+                                <p class="text-sm text-slate-600 italic hidden" data-lang="en">Web and Mobile App Design and Development</p>
+                                <p class="text-sm text-slate-600">Langara College, Vancouver, BC</p>
+                                <p class="text-xs text-slate-500 mt-1" data-lang="tr">*Kişisel nedenlerden dolayı program tamamlanamamıştır.</p>
+                                <p class="text-xs text-slate-500 mt-1 hidden" data-lang="en">*Program could not be completed due to personal circumstances.</p>
+                            </div>
+                            <div class="print-text-sm">
+                                <div class="flex justify-between items-baseline">
+                                    <h4 class="font-bold text-slate-700" data-lang="tr">Lisans Derecesi</h4>
+                                    <h4 class="font-bold text-slate-700 hidden" data-lang="en">Bachelor's Degree</h4>
+                                    <p class="text-sm text-slate-500" data-lang="tr">Eylül 2013 - Haziran 2018</p>
+                                    <p class="text-sm text-slate-500 hidden" data-lang="en">September 2013 - June 2018</p>
+                                </div>
+                                <p class="text-sm text-slate-600 italic" data-lang="tr">Endüstriyel Tasarım</p>
+                                <p class="text-sm text-slate-600 italic hidden" data-lang="en">Industrial Design</p>
+                                <p class="text-sm text-slate-600" data-lang="tr">Orta Doğu Teknik Üniversitesi, Ankara</p>
+                                <p class="text-sm text-slate-600 hidden" data-lang="en">Middle East Technical University, Ankara</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Qualifications -->
+                    <section class="mt-8 print-break-inside-avoid">
+                        <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">NİTELİK ÖZETİ</h3>
+                        <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">SUMMARY OF QUALIFICATIONS</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600 print-text-sm">
+                            <li data-lang="tr">Teknik ekipler ve son kullanıcılar dahil olmak üzere farklı paydaşlarla etkili iletişim kurarak proje hedeflerine ulaşma.</li>
+                            <li data-lang="en" class="hidden">Achieving project goals by communicating effectively with diverse stakeholders, including technical teams and end-users.</li>
+                            <li data-lang="tr">Disiplinler arası takımlarda iş birliğini ve kapsayıcılığı teşvik ederek verimli bir çalışma ortamı yaratma.</li>
+                            <li data-lang="en" class="hidden">Fostering a productive work environment by promoting collaboration and inclusivity in cross-functional teams.</li>
+                            <li data-lang="tr">Çoklu görevleri etkin bir şekilde önceliklendirerek proje teslim tarihlerine sürekli uyum sağlama.</li>
+                            <li data-lang="en" class="hidden">Consistently meeting project deadlines by effectively prioritizing and managing multiple tasks.</li>
+                            <li data-lang="tr">Analitik ve eleştirel düşünme becerisiyle sorunlara yapıcı ve yenilikçi çözümler geliştirme.</li>
+                            <li data-lang="en" class="hidden">Developing constructive and innovative solutions to challenges through analytical and critical thinking.</li>
+                            <li data-lang="tr">Tasarım yaşam döngüsü boyunca detaylara özen göstererek net, tutarlı ve kapsamlı dokümantasyon üretme.</li>
+                            <li data-lang="en" class="hidden">Producing clear, consistent, and comprehensive documentation throughout the design lifecycle with meticulous attention to detail.</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to switch language
+        function switchLanguage(lang) {
+            // Get all elements that have a lang attribute
+            const elements = document.querySelectorAll('[data-lang]');
+            
+            elements.forEach(el => {
+                if (el.dataset.lang === lang) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // Update button styles
+            const trButton = document.getElementById('lang-tr');
+            const enButton = document.getElementById('lang-en');
+
+            if (lang === 'tr') {
+                trButton.classList.add('bg-slate-800', 'text-white');
+                trButton.classList.remove('text-slate-600');
+                enButton.classList.add('text-slate-600');
+                enButton.classList.remove('bg-slate-800', 'text-white');
+                document.documentElement.lang = 'tr';
+            } else {
+                enButton.classList.add('bg-slate-800', 'text-white');
+                enButton.classList.remove('text-slate-600');
+                trButton.classList.add('text-slate-600');
+                trButton.classList.remove('bg-slate-800', 'text-white');
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        // Initialize with Turkish language
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLanguage('tr');
+        });
+    </script>
+
+</body>
+</html>
