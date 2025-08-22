@@ -23,55 +23,76 @@
             transform: translateY(-2px);
         }
         
-        /* --- UPDATED PRINT STYLES --- */
+        /* --- REFINED PRINT STYLES FOR PERFECT OUTPUT --- */
         @media print {
-            body {
-                background-color: #fff;
-                font-size: 9pt; /* Base font size for print */
-                line-height: 1.3;
+            /* Rule to remove browser-generated headers and footers */
+            @page {
+                size: A4;
                 margin: 0;
-                padding: 0;
+            }
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 100%;
+                background-color: #fff;
+                font-size: 9.5pt; /* Optimal base font size for A4 print */
+                line-height: 1.35;
             }
             .no-print {
                 display: none !important;
             }
             .print-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
                 box-shadow: none !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 border: none !important;
-                max-width: 100% !important;
-                height: 100vh; /* Fill the page height */
             }
             .print-container > .bg-white {
                 height: 100%;
                 border-radius: 0 !important;
+                overflow: hidden;
             }
-            /* Keep the grid layout for print */
+            /* Preserve the grid layout for print */
             .print-grid-reset {
                  display: grid !important;
+                 grid-template-columns: 1fr 2fr !important; /* Enforce 1/3 and 2/3 columns */
                  height: 100%;
             }
             .print-full-width {
-                padding: 1.5rem !important; /* Reduce padding */
+                padding: 1.75rem !important; /* Consistent padding */
             }
             /* Force background colors and text colors to print */
             .bg-slate-800 {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: #1e293b !important;
             }
-            h1, h2, h3, h4, p, li, span {
-                color: initial !important;
-            }
-            .text-white, .text-slate-200, .text-slate-300 {
+            .text-white, .text-slate-200, .text-slate-300, .text-slate-400 {
+                 -webkit-print-color-adjust: exact !important;
+                 print-color-adjust: exact !important;
                  color: #fff !important;
             }
-            /* Reduce font sizes */
-            h1.text-3xl { font-size: 24pt !important; }
+            .border-slate-600 {
+                -webkit-print-color-adjust: exact !important;
+                 print-color-adjust: exact !important;
+                 border-color: #475569 !important;
+            }
+             .border-slate-500 {
+                -webkit-print-color-adjust: exact !important;
+                 print-color-adjust: exact !important;
+                 border-color: #64748b !important;
+            }
+            /* Fine-tune font sizes for print */
+            h1.text-3xl { font-size: 22pt !important; }
             h3.text-xl { font-size: 14pt !important; }
             h3.text-lg { font-size: 12pt !important; }
             
-            /* Reduce spacing */
+            /* Fine-tune spacing for print */
             .mt-10 { margin-top: 1.5rem !important; }
             .mt-8 { margin-top: 1.25rem !important; }
             .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
@@ -80,10 +101,11 @@
             .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.4rem !important; }
             .space-y-1 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.2rem !important; }
             
-            /* Reduce image size */
+            /* Fine-tune image size for print */
             .rounded-full {
-                width: 110px !important;
-                height: 110px !important;
+                width: 120px !important;
+                height: 120px !important;
+                margin-bottom: 0.75rem !important;
             }
         }
     </style>
@@ -120,11 +142,11 @@
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="grid grid-cols-1 md:grid-cols-3 print-grid-reset">
                 
-                <!-- Left Column: Contact, Skills -->
+                <!-- Left Column: Contact, Skills, Languages -->
                 <aside class="md:col-span-1 bg-slate-800 text-white p-8 print-full-width">
                     <!-- Profile Picture and Name -->
                     <div class="flex flex-col items-center text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=BB" alt="Beste Bozdağ" class="rounded-full w-36 h-36 border-4 border-slate-500 object-cover mb-4">
+                        <img src="https://i.ibb.co/0jHjJy01/Screenshot-2025-08-22-at-13-53-37.png" alt="Beste Bozdağ" class="rounded-full w-36 h-36 border-4 border-slate-500 object-cover mb-4">
                         <h1 class="text-3xl font-bold text-white">BESTE BOZDAĞ</h1>
                     </div>
 
@@ -197,6 +219,16 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Languages -->
+                    <div class="mt-8 print-break-inside-avoid">
+                        <h3 class="text-lg font-bold text-slate-300 border-b-2 border-slate-600 pb-2 mb-4" data-lang="tr">DİLLER</h3>
+                        <h3 class="text-lg font-bold text-slate-300 border-b-2 border-slate-600 pb-2 mb-4 hidden" data-lang="en">LANGUAGES</h3>
+                        <div class="space-y-2 text-sm text-slate-200">
+                            <p><span class="font-semibold" data-lang="tr">Türkçe:</span><span class="font-semibold hidden" data-lang="en">Turkish:</span> <span data-lang="tr">Ana Dil</span><span class="hidden" data-lang="en">Native</span></p>
+                            <p><span class="font-semibold" data-lang="tr">İngilizce:</span><span class="font-semibold hidden" data-lang="en">English:</span> <span data-lang="tr">İleri Düzey</span><span class="hidden" data-lang="en">Professional Proficiency</span></p>
+                        </div>
+                    </div>
                 </aside>
 
                 <!-- Right Column: Summary, Experience, Education, Qualifications -->
@@ -262,18 +294,6 @@
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4" data-lang="tr">EĞİTİM</h3>
                         <h3 class="text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 mb-4 hidden" data-lang="en">EDUCATION</h3>
                         <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between items-baseline">
-                                    <h4 class="font-bold text-slate-700">Post Degree Diploma</h4>
-                                    <p class="text-sm text-slate-500" data-lang="tr">Eylül 2024 - Nisan 2025</p>
-                                    <p class="text-sm text-slate-500 hidden" data-lang="en">September 2024 - April 2025</p>
-                                </div>
-                                <p class="text-sm text-slate-600 italic" data-lang="tr">Web ve Mobil Uygulama Tasarımı ve Geliştirme</p>
-                                <p class="text-sm text-slate-600 italic hidden" data-lang="en">Web and Mobile App Design and Development</p>
-                                <p class="text-sm text-slate-600">Langara College, Vancouver, BC</p>
-                                <p class="text-xs text-slate-500 mt-1" data-lang="tr">*Kişisel nedenlerden dolayı program tamamlanamamıştır.</p>
-                                <p class="text-xs text-slate-500 mt-1 hidden" data-lang="en">*Program could not be completed due to personal circumstances.</p>
-                            </div>
                             <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="font-bold text-slate-700" data-lang="tr">Lisans Derecesi</h4>
